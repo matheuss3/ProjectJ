@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ProjectJ.Models;
 
 namespace ProjectJ.Controllers
 {
@@ -21,6 +22,10 @@ namespace ProjectJ.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            Product p = new Product();
+
+            p.get();
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
